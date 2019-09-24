@@ -1,0 +1,53 @@
+<p-card header="Cadastro de Cliente">
+    <form #formulario="ngForm" (ngSubmit)="salvar(formulario.value)">
+        <div class="ui-fluid">
+            <div class="ui-g">
+                <div class="ui-md-12 ui-sm-12">
+                    <label for="nome">Nome: </label>
+                    <input type="text" id="nome" name="nome" pInputText ngModel #nome="ngModel" placeholder="Nome" required autofocus maxlength="50" />
+                </div>
+                <div class="ui-md-2 ui-sm-12">
+                    <label for="telefone">Telefone: </label>
+                    <p-inputMask type="tel" id="telefone" name="telefone" ngModel #telefone="ngModel" placeholder="Telefone" required mask="99999-9999"></p-inputMask>
+                </div>
+                <div class="ui-md-2 ui-sm-12">
+                    <label for="cpf">CPF: </label>
+                    <p-inputMask type="tel" id="cpf" name="cpf" ngModel #cpf="ngModel" placeholder="CPF" mask="999.999.999-99"></p-inputMask>
+                </div>
+            </div>
+            <div class="ui-g">
+                <div class="ui-md-2 ui-sm-12">
+                    <label for="cep">CEP: </label>
+                    <p-inputMask type="tel" id="cep" name="cep" ngModel #cep="ngModel" placeholder="CEP" mask="99999-999"></p-inputMask>
+                </div>
+                <div class="ui-md-8 ui-sm-12">
+                    <label for="endereco">Endereço: </label>
+                    <input type="text" id="endereco" name="endereco" pInputText ngModel #endereco="ngModel" placeholder="Endereço" maxlength="50" />
+                </div>
+                <div class="ui-md-2 ui-sm-12">
+                    <label for="numero">Número: </label>
+                    <input type="text" id="numero" name="numero" pInputText ngModel #numero="ngModel" placeholder="Número" maxlength="5" />
+                </div>
+            </div>
+            <div class="ui-g">
+                <div class="ui-md-6 ui-sm-12">
+                    <label for="estado">Estado: </label>
+                    <p-dropdown [options]="estados" id="estado" [(ngModel)]="estado" name="estado" #estado="ngModel" optionLabel="nome" [showClear]="true"></p-dropdown>
+                </div>
+                <div class="ui-md-6 ui-sm-12">
+                    <label for="cidade">Cidade: </label>
+                    <p-dropdown [options]="cidades" id="cidade" [(ngModel)]="cidade" name="cidade" #cidade="ngModel" optionLabel="nome" [showClear]="true"></p-dropdown>
+                </div>
+            </div>
+            <div class="ui-g">
+                <div class="ui-md-3 ui-sm-12">
+                    <button type="submit" pButton label="Salvar" [disabled]="formulario.invalid" style="margin-right: .25em"></button>
+                </div>
+                <div class="ui-md-3 ui-sm-12">
+                    <a [routerLink]="['']">Voltar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</p-card>
+<p-toast></p-toast>

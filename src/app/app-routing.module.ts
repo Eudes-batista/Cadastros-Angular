@@ -1,11 +1,11 @@
-import { ClienteComponent } from './cadastro/cliente/cliente.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ClienteModule } from './cadastro/cliente/cliente.module';
 
 
 const routes: Routes = [
   { path: 'cliente', loadChildren: () => import('./cadastro/cliente/cliente.module').then(mod => mod.ClienteModule) },
+  { path: 'tipo-de-pagamento',
+  loadChildren: () => import('./cadastro/tipo-pagamento/tipo-pagamento.module').then(mod => mod.TipoPagamentoModule) },
   { path: '', redirectTo: 'cliente', pathMatch: 'full'}
 ];
 

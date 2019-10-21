@@ -1,53 +1,60 @@
-import { ConfirmationService, MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService, LazyLoadEvent } from 'primeng/api';
 import { GenericService } from '../servicos/generic.service';
+import { ContentRequest } from '../modelo/servidor/ContentRequest.class';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 export abstract class Componente<T> {
 
-    paginaAtual = 0;
-    totalRegistro = 10;
+    contentRequest: ContentRequest;
     entidades: T[];
-    pesquisa: string;
+    entidade: T;
+    inscricaoAlterar$: Subscription;
+    totalRegistro: number;
+    carregar = true;
 
     constructor(
-        private genericService: GenericService<T>
-        , public confirmationService: ConfirmationService
-        , public messageService: MessageService
+        private genericService: GenericService<T>, public confirmationService: ConfirmationService, public messageService: MessageService
     ) {
+        this.contentRequest = new ContentRequest(0, 5);
     }
 
     public listarEntidades(): void {
-        this.genericService.listar(this.paginaAtual, this.totalRegistro)
+        this.genericService.listar(this.contentRequest)
             .subscribe(
                 success => {
-                    this.entidades = success['content'];
+                    this.entidades = success.content;
+                    this.totalRegistro = success.totalElements;
                 },
                 error => {
-                    console.log(error);
+                    this.messageService.add({ severity: 'error', summary: error.message });
                 }
             );
     }
-
     public pesquisar(): void {
-        this.genericService.pesquisarConteudo(this.pesquisa, this.paginaAtual, this.totalRegistro)
+        this.genericService.pesquisarConteudo(this.contentRequest)
             .subscribe(
                 success => {
-                    this.entidades = success['content'];
+                    this.entidades = success.content;
+                    this.totalRegistro = success.totalElements;
                 },
                 error => {
-                    console.log(error);
+                    this.messageService.add({ severity: 'error', summary: error.message });
                 }
             );
     }
 
-    public salvar(entidade: T): void {
-        console.log('passou aqui');
-        this.genericService.salvar(entidade)
+    public buscarEntidade(route: ActivatedRoute, t: T): void {
+        this.inscricaoAlterar$ = route.data.subscribe(response => this.entidade = !response.id ? t : response.id);
+    }
+
+    public salvar(t: T): void {
+        this.genericService.salvar(this.entidade)
             .subscribe(
                 success => {
                     this.messageService.add({ severity: 'success', summary: 'Cliente salvo com sucesso!!' });
                 },
                 error => {
-                    console.log(error);
                     this.messageService.add({ severity: 'error', summary: error });
                 }
             );

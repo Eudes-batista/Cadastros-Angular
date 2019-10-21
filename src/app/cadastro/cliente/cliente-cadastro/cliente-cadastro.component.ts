@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { ConfirmationService, MessageService } from 'primeng/api';
+
+import { Componente } from 'src/app/components/componente.class';
+
 import { ClienteService } from './../../../servicos/cliente.service';
 import { Cliente } from './../../../modelo/cliente.class';
-import { Componente } from 'src/app/components/componente.class';
 
 @Component({
   selector: 'app-cliente-cadastro',
@@ -11,33 +14,41 @@ import { Componente } from 'src/app/components/componente.class';
   styleUrls: ['./cliente-cadastro.component.css'],
   preserveWhitespaces: true
 })
-export class ClienteCadastroComponent extends Componente<Cliente> implements OnInit {
+export class ClienteCadastroComponent extends Componente<Cliente> implements OnInit, OnDestroy {
 
-  estados = [{ nome: 'PE' }];
   cidades = [{ nome: 'OLINDA' }, { nome: 'RECIFE' }, { nome: 'JABOATÃO' }, { nome: 'CAMARAGIBE' }, { nome: 'PAULISTA' }];
 
-  estado: any;
-  cidade: any;
+  private estado = 'PE';
+  cidade = { nome: 'OLINDA' };
 
   constructor(
-      private clienteService: ClienteService
+    private clienteService: ClienteService
     , public confirmationService: ConfirmationService
     , public messageService: MessageService
+    , private route: ActivatedRoute
   ) {
     super(clienteService, confirmationService, messageService);
   }
 
-  public salvar(cliente: Cliente): void {
-    cliente.telefone = cliente.telefone.replace(/\D/g, '');
-    cliente.cpf = cliente.cpf.replace(/\D/g, '');
-    cliente.cep = cliente.cep.replace(/\D/g, '');
-    cliente.estado = this.estado;
-    cliente.cidade = this.cidade;
-    super.salvar(cliente);
+  public salvar(): void {
+    this.entidade.telefone = this.entidade.telefone.replace(/\D/g, '');
+    this.entidade.cpf = this.entidade.cpf.replace(/\D/g, '');
+    this.entidade.cep = this.entidade.cep.replace(/\D/g, '');
+    this.entidade.estado = this.estado;
+    this.entidade.cidade = this.cidade.nome;
+    super.salvar(this.entidade);
   }
 
   ngOnInit() {
+    this.buscarEntidade(this.route, new Cliente());
+    if (this.entidade.cidade) {
+      this.cidade.nome = this.entidade.cidade;
+    }
     document.getElementById('nome').focus();
+  }
+
+  ngOnDestroy() {
+    this.inscricaoAlterar$.unsubscribe();
   }
 
 }

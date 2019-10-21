@@ -1,0 +1,22 @@
+<p-card header="Cadastro de Tipo de pagamento">
+    <form #formulario="ngForm" (ngSubmit)="salvar()">
+        <div class="ui-fluid">
+            <div class="ui-g">
+                <input type="number" id="codigo" name="codigo" pInputText [(ngModel)]="entidade.codigo" #codigo="ngModel" placeholder="codigo" hidden />
+                <div class="ui-md-2 ui-sm-12">
+                    <label for="nome">Nome: </label>
+                    <input type="text" id="nome" name="nome" pInputText [(ngModel)]="entidade.nome" #nome="ngModel" placeholder="nome" required autofocus/>
+                </div>
+            </div>
+            <div class="ui-g">
+                <div class="ui-md-3 ui-sm-12">
+                    <button type="submit" pButton label="Salvar" [disabled]="formulario.invalid" style="margin-right: .25em"></button>
+                </div>
+                <div class="ui-md-3 ui-sm-12">
+                    <a [routerLink]="['/tipo-de-pagamento']">Voltar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</p-card>
+<p-toast></p-toast>

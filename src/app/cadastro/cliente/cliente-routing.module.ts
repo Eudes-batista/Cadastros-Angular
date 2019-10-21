@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 
 import { ClienteComponent } from './cliente.component';
 import { ClienteCadastroComponent } from './cliente-cadastro/cliente-cadastro.component';
+import { ClienteResolveGuard } from './aguarda/cliente-resolver.guard';
 
 const routes: Routes = [
       { path: '', component: ClienteComponent }
     , { path: 'novo', component: ClienteCadastroComponent }
-    , { path: ':id', component: ClienteCadastroComponent }
+    , { path: ':id', component: ClienteCadastroComponent, resolve: {id: ClienteResolveGuard } }
 ];
 
 @NgModule({

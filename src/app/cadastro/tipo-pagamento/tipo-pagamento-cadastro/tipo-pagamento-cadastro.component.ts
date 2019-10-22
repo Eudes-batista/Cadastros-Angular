@@ -24,7 +24,6 @@ export class TipoPagamentoCadastroComponent extends Componente<TipoPagamento> im
 
   ngOnInit() {
     this.buscarEntidade(this.route, new TipoPagamento());
-    document.getElementById('nome').focus();
   }
 
   ngOnDestroy() {

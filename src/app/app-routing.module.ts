@@ -3,10 +3,20 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path: 'cliente', loadChildren: () => import('./cadastro/cliente/cliente.module').then(mod => mod.ClienteModule) },
-  { path: 'tipo-de-pagamento',
-  loadChildren: () => import('./cadastro/tipo-pagamento/tipo-pagamento.module').then(mod => mod.TipoPagamentoModule) },
-  { path: '', redirectTo: 'cliente', pathMatch: 'full'}
+  {
+    path: 'cliente', loadChildren: () => import('./cadastro/cliente/cliente.module').then(mod => mod.ClienteModule)
+  },
+  {
+    path: 'tipo-de-pagamento',
+    loadChildren: () => import('./cadastro/tipo-pagamento/tipo-pagamento.module').then(mod => mod.TipoPagamentoModule)
+  },
+  {
+    path: 'forma-de-pagamento',
+    loadChildren: () => import('./cadastro/forma-pagamento/forma-pagamento.module').then(mod => mod.FormaPagamentoModule)
+  },
+  {
+    path: '', redirectTo: 'cliente', pathMatch: 'full'
+  }
 ];
 
 @NgModule({

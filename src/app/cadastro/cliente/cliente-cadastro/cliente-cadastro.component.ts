@@ -22,7 +22,7 @@ export class ClienteCadastroComponent extends Componente<Cliente> implements OnI
   cidade = { nome: 'OLINDA' };
 
   constructor(
-    private clienteService: ClienteService
+      private clienteService: ClienteService
     , public confirmationService: ConfirmationService
     , public messageService: MessageService
     , private route: ActivatedRoute
@@ -36,6 +36,7 @@ export class ClienteCadastroComponent extends Componente<Cliente> implements OnI
     this.entidade.cep = this.entidade.cep.replace(/\D/g, '');
     this.entidade.estado = this.estado;
     this.entidade.cidade = this.cidade.nome;
+    this.entidade.status = true;
     super.salvar(this.entidade);
   }
 

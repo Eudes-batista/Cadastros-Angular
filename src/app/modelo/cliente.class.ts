@@ -7,4 +7,5 @@ export class Cliente {
     numero: string;
     estado: string;
     cidade: string;
+    status: boolean;
 }

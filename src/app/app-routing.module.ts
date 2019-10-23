@@ -1,21 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
-    path: 'cliente', loadChildren: () => import('./cadastro/cliente/cliente.module').then(mod => mod.ClienteModule)
-  },
-  {
-    path: 'tipo-de-pagamento',
-    loadChildren: () => import('./cadastro/tipo-pagamento/tipo-pagamento.module').then(mod => mod.TipoPagamentoModule)
-  },
-  {
-    path: 'forma-de-pagamento',
-    loadChildren: () => import('./cadastro/forma-pagamento/forma-pagamento.module').then(mod => mod.FormaPagamentoModule)
-  },
-  {
-    path: '', redirectTo: 'cliente', pathMatch: 'full'
+    path: '', component: AppComponent
   }
 ];
 

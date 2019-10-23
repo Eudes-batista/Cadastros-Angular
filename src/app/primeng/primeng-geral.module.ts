@@ -9,6 +9,7 @@ import {ToastModule} from 'primeng/toast';
 import {CardModule} from 'primeng/card';
 import {InputMaskModule} from 'primeng/inputmask';
 import {DropdownModule} from 'primeng/dropdown';
+import {MenubarModule} from 'primeng/menubar';
 
 @NgModule({
   declarations: [],
@@ -21,6 +22,7 @@ import {DropdownModule} from 'primeng/dropdown';
     ToastModule,
     CardModule,
     InputMaskModule,
+    MenubarModule,
     DropdownModule
   ],
   exports: [
@@ -31,6 +33,7 @@ import {DropdownModule} from 'primeng/dropdown';
     ToastModule,
     CardModule,
     InputMaskModule,
+    MenubarModule,
     DropdownModule
   ],
 })

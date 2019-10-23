@@ -2,7 +2,7 @@
 <div class="ui-fluid">
     <label for="pesquisa">Pesquisa</label>
     <input id="pesquisa" type="text" pInputText [(ngModel)]="contentRequest.content" (keyup.enter)="pesquisar()" />
-    <p-table [value]="entidades" [paginator]="true" [rows]="5" [lazy]="true" [totalRecords]="totalRegistro">
+    <p-table [value]="entidades" [responsive]="true" [paginator]="true" [rows]="5" [lazy]="true" [totalRecords]="totalRegistro">
         <ng-template pTemplate="header">
             <tr>
                 <th>Codigo</th>

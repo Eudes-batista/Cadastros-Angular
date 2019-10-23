@@ -8,6 +8,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PrimengGeralModule } from './primeng/primeng-geral.module';
+import { PrincipalModule } from './principal/principal.module';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { PrimengGeralModule } from './primeng/primeng-geral.module';
     HttpClientModule,
     BrowserAnimationsModule,
     PrimengGeralModule,
+    PrincipalModule,
     AppRoutingModule
   ],
   providers: [],

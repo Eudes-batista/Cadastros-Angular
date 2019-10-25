@@ -51,4 +51,12 @@ export abstract class GenericService<T> {
 
   public abstract getResource(): string;
 
+  get getApiUrl(): string {
+    return this.apiUrl;
+  }
+
+  get getHttpClient(): HttpClient {
+    return this.httpClient;
+  }
+
 }

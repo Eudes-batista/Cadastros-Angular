@@ -30,6 +30,13 @@
         </ng-template>
     </p-table>
 </div>
-<a [routerLink]="['/cliente/novo']">Novo Registro</a>
+<div class="ui-g">
+    <div class="ui-md-2">
+        <a [routerLink]="['/cliente/novo']">Novo Registro</a>
+    </div>
+    <div class="ui-md-2">
+        <p-button class="ui-button-info" (click)="relatorioCliente()" label="Relatorio de cliente"></p-button>
+    </div>
+</div>
 <p-confirmDialog header="confirmacao"></p-confirmDialog>
 <p-toast></p-toast>

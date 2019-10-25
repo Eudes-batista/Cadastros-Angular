@@ -28,6 +28,19 @@ export class ClienteComponent extends Componente<Cliente> implements OnInit {
     this.router.navigate(['/cliente/', id]);
   }
 
+  public relatorioCliente(): void {
+    this.clienteService.buscarRelatorioCliente().subscribe(
+      response => {
+        const file = new Blob([response], { type: 'application/pdf' });
+        const fileURL = URL.createObjectURL(file);
+        window.open(fileURL);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
   ngOnInit() {
     this.listarEntidades();
   }

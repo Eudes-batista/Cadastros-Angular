@@ -14,4 +14,9 @@ export class ClienteService extends GenericService<Cliente> {
     return 'cliente';
   }
 
+  public buscarRelatorioCliente() {
+    const options = { fileName: 'relatorioCliente' };
+    return this.getHttpClient.get(`${this.getApiUrl}/pdfreport`, { responseType: 'blob', headers: options });
+  }
+
 }

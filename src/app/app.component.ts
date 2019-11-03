@@ -19,6 +19,7 @@ export class AppComponent {
           { label: 'Cliente', routerLink: '/cliente' },
           { label: 'Tipo de Pagamento', routerLink: '/tipo-de-pagamento' },
           { label: 'Forma de Pagamento', routerLink: '/forma-de-pagamento' },
+          { label: 'Tipo de Frete', routerLink: '/tipo-de-frete' },
         ]
       }
     ];

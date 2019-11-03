@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'forma-de-pagamento',
     loadChildren: () => import('./../cadastro/forma-pagamento/forma-pagamento.module').then(mod => mod.FormaPagamentoModule)
   },
+  {
+    path: 'tipo-de-frete',
+    loadChildren: () => import('./../cadastro/tipo-frete/tipo-frete.module').then(mod => mod.TipoFreteModule)
+  },
 ];
 
 @NgModule({

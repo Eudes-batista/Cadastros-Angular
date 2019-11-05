@@ -30,3 +30,4 @@ export class TipoFreteComponent extends Componente<TipoFrete> implements OnInit 
     this.listarEntidades();
   }
 
+}

@@ -1,0 +1,39 @@
+<h3>Lista de Produtos</h3>
+<div class="ui-fluid">
+    <label for="pesquisa">Pesquisa</label>
+    <input id="pesquisa" type="text" pInputText [(ngModel)]="contentRequest.content" (keyup.enter)="pesquisar()" />
+    <p-table [value]="entidades" [responsive]="true" [paginator]="true" [rows]="5" [lazy]="true" [totalRecords]="totalRegistro">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Referencia</th>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Tipo</th>
+                <th>Estoque minimo</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-produto>
+            <tr>
+                <td>{{ produto.referencia }}</td>
+                <td>{{ produto.nome }}</td>
+                <td>{{ produto.preco }}</td>
+                <td>{{ produto.tipo }}</td>
+                <td>{{ produto.estoqueMinimo }}</td>
+                <td>
+                    <p-button label="Alterar" styleClass="ui-button-primary" (click)="alterar(produto.referencia)"></p-button>
+
+                    <p-button label="Excluir" styleClass="ui-button-danger" (click)="excluir(produto.referencia)">
+                    </p-button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+<div class="ui-g">
+    <div class="ui-md-12">
+        <a [routerLink]="['/produto/novo']">Novo Registro</a>
+    </div>
+</div>
+<p-confirmDialog header="confirmacao"></p-confirmDialog>
+<p-toast></p-toast>

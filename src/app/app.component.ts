@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -6,7 +6,7 @@ import { MenuItem } from 'primeng/api';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   items: MenuItem[];
 
   constructor() { }
@@ -20,6 +20,7 @@ export class AppComponent {
           { label: 'Tipo de Pagamento', routerLink: '/tipo-de-pagamento' },
           { label: 'Forma de Pagamento', routerLink: '/forma-de-pagamento' },
           { label: 'Tipo de Frete', routerLink: '/tipo-de-frete' },
+          { label: 'Produto', routerLink: '/produto' },
         ]
       }
     ];

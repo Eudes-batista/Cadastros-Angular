@@ -10,7 +10,8 @@ import { TipoFreteService } from 'src/app/servicos/tipo-frete.service';
 @Component({
   selector: 'app-tipo-frete',
   templateUrl: './tipo-frete.component.html',
-  styleUrls: ['./tipo-frete.component.css']
+  styleUrls: ['./tipo-frete.component.css'],
+  preserveWhitespaces: true
 })
 export class TipoFreteComponent extends Componente<TipoFrete> implements OnInit {
 

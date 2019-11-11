@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { PrimengGeralModule } from './../../primeng/primeng-geral.module';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
+import { Interceptor } from 'src/app/servicos/http-interceptor.module';
+
 import { FormaPagamentoRoutingModule } from './forma-pagamento-routing.module';
 import { FormaPagamentoComponent } from './forma-pagamento.component';
 import { FormaPagamentoCadastroComponent } from './forma-pagamento-cadastro/forma-pagamento-cadastro.component';
@@ -22,6 +24,7 @@ import { TipoPagamentoService } from 'src/app/servicos/tipo-pagamento.service';
     FormsModule,
     HttpClientModule,
     PrimengGeralModule,
+    Interceptor,
     FormaPagamentoRoutingModule
   ],
   providers: [

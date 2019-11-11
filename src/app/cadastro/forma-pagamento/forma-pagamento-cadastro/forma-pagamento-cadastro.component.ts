@@ -13,7 +13,7 @@ import { TipoPagamento } from './../../../modelo/tipoPagamento.class';
 @Component({
   selector: 'app-forma-pagamento-cadastro',
   templateUrl: './forma-pagamento-cadastro.component.html',
-  styleUrls: ['./forma-pagamento-cadastro.component.css']
+  styleUrls: ['./forma-pagamento-cadastro.component.css'],
 })
 export class FormaPagamentoCadastroComponent extends Componente<FormaPagamento> implements OnInit, OnDestroy {
 
@@ -22,16 +22,14 @@ export class FormaPagamentoCadastroComponent extends Componente<FormaPagamento> 
   constructor(
     private route: ActivatedRoute,
     private tipoPagamentoService: TipoPagamentoService,
-    formaPagamentoService: FormaPagamentoService, confirmationService: ConfirmationService, messageService: MessageService) {
+    formaPagamentoService: FormaPagamentoService,
+    confirmationService: ConfirmationService,
+    messageService: MessageService) {
     super(formaPagamentoService, confirmationService, messageService);
   }
 
   private listarTiposDePagamentos(): void {
-    this.tipoPagamentoService.listar(null).subscribe(
-      success => {
-        this.tipoDePagamentos = success.content;
-      }
-    );
+    this.tipoPagamentoService.listar(null).subscribe(success => this.tipoDePagamentos = success.content);
   }
 
   ngOnInit() {

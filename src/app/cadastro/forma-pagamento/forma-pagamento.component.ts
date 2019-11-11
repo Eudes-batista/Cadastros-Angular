@@ -10,7 +10,8 @@ import { FormaPagamentoService } from './../../servicos/forma-pagamento.service'
 @Component({
   selector: 'app-forma-pagamento',
   templateUrl: './forma-pagamento.component.html',
-  styleUrls: ['./forma-pagamento.component.css']
+  styleUrls: ['./forma-pagamento.component.css'],
+  preserveWhitespaces: true
 })
 export class FormaPagamentoComponent extends Componente<FormaPagamento> implements OnInit {
 

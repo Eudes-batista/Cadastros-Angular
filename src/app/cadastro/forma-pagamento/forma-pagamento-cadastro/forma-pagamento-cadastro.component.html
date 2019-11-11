@@ -5,7 +5,7 @@
                 <input type="number" id="codigo" name="codigo" pInputText [(ngModel)]="entidade.codigo" #codigo="ngModel" placeholder="codigo" hidden />
                 <div class="ui-md-12 ui-sm-12">
                     <label for="tipoPagamento">Tipo de Pagamento: </label>
-                    <p-dropdown [options]="tipoDePagamentos" id="tipoPagamento" [(ngModel)]="entidade.tipoPagamento" name="tipoPagamento" #tipoPagamento="ngModel" optionLabel="nome" [showClear]="true">
+                    <p-dropdown [options]="tipoDePagamentos" placeholder="Selecione" id="tipoPagamento" [(ngModel)]="entidade.tipoPagamento" name="tipoPagamento" #tipoPagamento="ngModel" optionLabel="nome" [showClear]="true">
                     </p-dropdown>
                 </div>
                 <div class="ui-md-6 ui-sm-12">

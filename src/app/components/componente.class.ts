@@ -48,7 +48,7 @@ export abstract class Componente<T> {
         this.inscricaoAlterar$ = route.data.subscribe(response => this.entidade = !response.id ? t : response.id);
     }
 
-    public salvar(t: T): void {
+    public salvar(): void {
         this.genericService.salvar(this.entidade)
             .subscribe(
                 success => {

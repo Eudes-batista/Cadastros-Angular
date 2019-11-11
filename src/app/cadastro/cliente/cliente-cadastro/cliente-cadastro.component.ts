@@ -37,7 +37,7 @@ export class ClienteCadastroComponent extends Componente<Cliente> implements OnI
     this.entidade.estado = this.estado;
     this.entidade.cidade = this.cidade.nome;
     this.entidade.status = true;
-    super.salvar(this.entidade);
+    super.salvar();
   }
 
   ngOnInit() {

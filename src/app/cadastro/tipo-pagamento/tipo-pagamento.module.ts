@@ -7,6 +7,8 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 
 import { PrimengGeralModule } from '../../primeng/primeng-geral.module';
 
+import { Interceptor } from 'src/app/servicos/http-interceptor.module';
+
 import { TipoPagamentoRoutingModule } from './tipo-pagamento-routing.module';
 import { TipoPagamentoComponent } from './tipo-pagamento.component';
 import { TipoPagamentoCadastroComponent } from './tipo-pagamento-cadastro/tipo-pagamento-cadastro.component';
@@ -23,6 +25,7 @@ import { TipoPagamentoResolveGuard } from './aguarda/tipo-de-pagamento-resolver.
     FormsModule,
     HttpClientModule,
     PrimengGeralModule,
+    Interceptor,
     TipoPagamentoRoutingModule
   ],
    providers: [

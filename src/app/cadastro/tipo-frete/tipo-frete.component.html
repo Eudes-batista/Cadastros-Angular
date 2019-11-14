@@ -15,7 +15,7 @@
             <tr>
                 <td>{{ tipoFrete.codigo }}</td>
                 <td>{{ tipoFrete.nome }}</td>
-                <td>{{ tipoFrete.preco | currency }}</td>
+                <td>{{ tipoFrete.preco | currency:'BRL' }}</td>
                 <td>
                     <p-button label="Alterar" styleClass="ui-button-primary" (click)="alterar(tipoFrete.codigo)"></p-button>
 

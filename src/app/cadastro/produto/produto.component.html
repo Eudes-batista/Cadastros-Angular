@@ -15,13 +15,14 @@
         </ng-template>
         <ng-template pTemplate="body" let-produto>
             <tr>
-                <td>{{ produto.referencia }}</td>
+                <td>{{ produto.referencia }}<a [routerLink]="['/grade/',produto.referencia]"> - Grade</a></td>
                 <td>{{ produto.nome }}</td>
                 <td>{{ produto.preco | currency:'BRL' }}</td>
                 <td>{{ produto.tipo }}</td>
                 <td>{{ produto.estoqueMinimo }}</td>
                 <td>
-                    <p-button label="Alterar" styleClass="ui-button-primary" (click)="alterar(produto.referencia)"></p-button>
+                    <p-button label="Alterar" styleClass="ui-button-primary" (click)="alterar(produto.referencia)">
+                    </p-button>
 
                     <p-button label="Excluir" styleClass="ui-button-danger" (click)="excluir(produto.referencia)">
                     </p-button>
